@@ -16,7 +16,19 @@ public class Environment {
     }
 
     public void displayMatrix() {
-        // Keep the existing implementation
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                System.out.print(" " + matrix[i][j] + " ");
+                if (j < SIZE - 1) {
+                    System.out.print("|");
+                }
+            }
+            System.out.println();
+            if (i < SIZE - 1) {
+                System.out.println("---+---+---");
+            }
+        }
+        System.out.println();
     }
 
     public boolean isCellEmpty(int row, int col) {
