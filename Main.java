@@ -14,8 +14,45 @@ public class Main {
             p1.choice(p1Choice);
 
             char p2Choice = p1Choice == 'X' ? '0' : 'X';
-        } catch (Exception e) {
+            System.out.println("Player 2 choice is : " + p2Choice);
+            p2.choice(p2Choice);
+
+            int i = 0;
+            do{
+                System.out.println("Choose position for player 1");
+                System.out.println("Enter row for Player 1");
+                int row  = sc.nextInt();
+                System.out.println("Enter column for Player 1");
+                int col = sc.nextInt();
+                callMove(row, col);
+
+                // Check if player 1 win
+                if(p1.check()){
+                    System.out.println("Player 1 win");
+                    return;
+                }
+
+                System.out.println("Choose position for player 2");
+                System.out.println("Enter row for Player 2");
+                int row2 = sc.nextInt();
+                System.out.println("Enter column for Player 2");
+                int col2 = sc.nextInt();
+                callMove(row2, col2);
+
+                // Check if player 2 win
+                if(p2.check()){
+                    System.out.println("Player 2 win");
+                    return;
+                }   
+            }
+        } catch (InterruptedException e) {
             // TODO: handle exception
-        }
+            System.out.println("Error occurred: ");
+            e.printStackTrace();
+
+        } catch (Exception e){
+            System.out.println("Error occurred: ");
+            e.printStackTrace();
+        }   
     }
 }
